@@ -1,41 +1,34 @@
 class Todo < ActiveRecord::Base
+  validates :todo_text, presence: true
+  validates :due_date, presence: true
+  validates :todo_text, length: {minimum: 2}
+
+  belongs_to :user
+
+  def to_displayable_string
+    isCompleted = completed ? "[X]" : "[ ]"
+    "#{id} #{due_date.to_s(:long)} #{todo_text} #{isCompleted}"
+  end
+  
   def self.overdue
-    all.where(" due_date< ?", Date.today)
+    all.where("due_date < ? and completed = ?", Date.today, false)
   end
 
   def self.due_today
-    all.where("due_date= ?", Date.today)
+    all.where(due_date: Date.today)
   end
-
+  
   def self.due_later
-    all.where("due_date> ?", Date.today)
+    all.where("due_date > ?", Date.today)
   end
 
-  def self.show_list
-    puts "My Todo-list\n\n"
-    puts "Overdue\n"
-    puts overdue.map { |todo| todo.to_displayable_string }
-
-    puts "\n\n"
-    puts "Due Today\n"
-    puts due_today.map { |todo| todo.to_displayable_string }
-    puts "\n\n"
-
-    puts "Due Later\n"
-    puts due_later.map { |todo| todo.to_displayable_string }
-    puts "\n\n"
-  end
-
-  def to_pleasent_string
-    is_completed = completed ? "[x]" : "[ ]"
-    "#{id} .  #{due_date.to_s(:long)} #{todo_text} #{is_completed}"
-  end
-
-  def self.completed
+  def self.isCompleted
     all.where(completed: true)
   end
 
-  def self.notcompleted
-    all.where(completed: false)
+  def self.of_user(user)
+    all.where(user_id: user.id)
   end
+
+
 end

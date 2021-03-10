@@ -15,8 +15,14 @@ development:
   
   test:
     <<: *default  
+     host: localhost
+  user: postgres
+  password: changeme
     database: test_saas_db
     
     production:  
-    <<: *default  
+    <<: *default
+     host: localhost
+  user: postgres
+  password: changeme  
     database: prod_saas_db

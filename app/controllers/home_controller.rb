@@ -1,14 +1,11 @@
 class HomeController < ApplicationController
-  #skip_before_action :ensure_user_logged_in
+  skip_before_action :ensure_user_logged_in
 
-  def welcome
+  def index
     if current_user
       redirect_to todos_path
     else
-      render "home"
+      render "index"
     end
-  end
-  def index
-    render plain: "This is the homepage"
   end
 end
