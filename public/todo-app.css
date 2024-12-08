@@ -1,0 +1,95 @@
+body{
+  max-width: 500px;
+  margin : auto;
+  background-color: f5f5f5f;
+  padding-top: 20px;
+  font-family: Trebuchet;
+  display:grid;
+  align-items: center;
+}
+
+.TodoPage-Title{
+  font-size:  32px;
+  font-weight: 600px;
+  line-height: 1.8;
+  margin-left: 60px;
+}
+
+.TodoSection-title{
+  font-size: 30px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.TodoPageMain{
+  display: inline;
+}
+
+.TodoPage-Inputs{
+  padding-left: 20px;
+  padding-bottom: 32px;
+}
+
+article{
+  display:table;
+  padding-top: 20px;
+}
+
+h3{
+  font-size: 24px;
+  line-height: 1.4;
+
+}
+
+.TodoItem-todo{
+  font-size: 20px;
+  line-height: 1.4;
+  margin-right: 10px;
+
+}
+
+.TodoSection{
+  margin-bottom: 32px;
+  margin-left: 40px;
+  background-color: #e5e5e5;
+  padding-left: 32px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-right: 10px;
+  max-width: 400px;
+border-width: 100px;
+
+
+}
+
+.TodoHeader{
+  display:flex;
+}
+
+.Fraction_Complete{
+  line-height: 1.4;
+  padding-top: 20px;
+  padding-left: 20px;
+
+}
+
+.Todo_List{
+  list-style-type: None;
+  line-height: 1.5;
+  display:inline;
+}
+
+.Todo_Div{
+  display: flex;
+  align-items: center;
+}
+
+.TodoItem-delete{
+  margin-top: 10px;
+}
+
+.TodoItem-date{
+  font-size: 10px;
+  align-items: center;
+  margin-right: 10px;
+}
